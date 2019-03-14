@@ -1,0 +1,1659 @@
+﻿<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- SEO -->
+    <title>HAProxy: High Availability</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
+    <meta property="og:url" content="http://your-url.com/permalink">
+    <!-- EDIT -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Make a Keynote presentation using HTML">
+    <!-- EDIT -->
+    <meta property="og:description" content="WebSlides is the easiest way to make HTML presentations. 120+ free slides ready to use.">
+    <!-- EDIT -->
+    <meta property="og:updated_time" content="2017-01-04T17:32:14">
+    <!-- EDIT -->
+    <meta property="og:image" content="./static/images/logos/haproxy.png">
+    <!-- EDIT -->
+    <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
+    <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="../static/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="../static/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="../static/images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon icon" sizes="180x180" href="../static/images/favicons/favicon-180.png">
+    <link rel="apple-touch-icon icon" sizes="192x192" href="../static/images/favicons/favicon-192.png">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+</head>
+
+<body>
+    <header role="banner">
+        <nav role="navigation">
+            <p class="logo"><a href="http://www.haproxy.org/" title="HAProxy">HAProxy</a></p>
+            <ul>
+                <li class="github">
+                    <a rel="external" href="https://github.com/haproxy/haproxy" title="Github">
+                        <svg class="fa-github">
+                            <use xlink:href="#fa-github"></use>
+                        </svg>
+                        <em>HAProxy</em>
+                    </a>
+                </li>
+                <li class="twitter">
+                    <a rel="external" href="https://twitter.com/haproxy?lang=en" title="Twitter">
+                        <svg class="fa-twitter">
+                            <use xlink:href="#fa-twitter"></use>
+                        </svg>
+                        <em>@HAProxy</em>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <article id="webslides">
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap">
+                    <h1><img class="whitelogo" src="../static/images/logos/haproxy.png" alt="HAProxy Logo"></h1>
+                </div>
+            </section>
+
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="">
+                        <div class="flex-content">
+                            <ul class="flexblock specs">
+                                <li>
+                                    <div>
+                                        <svg class="fa-sitemap">
+                                            <use xlink:href="#fa-sitemap"></use>
+                                        </svg>
+                                        <h1>What is HAProxy?</h1>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <svg class="fa-sitemap">
+                                            <use xlink:href="#fa-sitemap"></use>
+                                        </svg>
+                                        <h1>Basic Features</h1>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div>
+                                        <svg class="fa-sitemap">
+                                            <use xlink:href="#fa-sitemap"></use>
+                                        </svg>
+                                        <h1>Advanced Features</h1>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <svg class="fa-sitemap">
+                                            <use xlink:href="#fa-sitemap"></use>
+                                        </svg>
+                                        <h1>What's new?</h1>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <svg class="fa-sitemap">
+                                            <use xlink:href="#fa-sitemap"></use>
+                                        </svg>
+                                        <h1>HAProxy at Nexcel</h1>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap">
+                    <h1 class="text-landing">What is HAProxy?</h1>
+                </div>
+            </section>
+
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2>HAProxy is open source software</h2>
+                    </div>
+                    <div class="content-left">
+                        <p>Provides a high availability <b>load balancer</b> and <b>proxy server</b> for TCP and HTTP-based applications that spreads requests across multiple servers.
+                        </p>
+                    </div>
+                    <ul class="flexblock metrics">
+                        <li> Founded
+                            <span>2001</span>
+                        </li>
+                        <li>
+                            <span>
+                                <svg class="fa-code">
+                                    <use xlink:href="#fa-code"></use>
+                                </svg>
+                            </span> Written in C
+                        </li>
+                        <li>
+                            <span>
+                                <svg class="fa-users">
+                                    <use xlink:href="#fa-users"></use>
+                                </svg>
+                            </span> Enterprise Edition
+                        </li>
+                        <li>
+                            Latest version
+                            <span>1.9+</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap">
+                    <h1 class="text-landing">Why HAProxy?</h1>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1>How does HAProxy work?</h1>
+                    <p class="text-intro">Event-driven architecture to receive requests from clients and dispatch them quickly to backend servers</p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <h2><strong>Once HAProxy is started. It does exactly 3 tasks</strong></h2>
+                    <hr class="bg-gray">
+                    <ul class="flexblock steps aligncenter">
+                        <li class="bg-white">
+                            <span>
+                                <svg class="fa-random">
+                                    <use xlink:href="#fa-random"></use>
+                                </svg>
+                            </span>
+                            <h4>Process incoming connections</h4>
+                        </li>
+                        <li class="bg-white">
+                            <div class="process step-2"></div>
+                            <span>
+                                <svg class="fa-heartbeat">
+                                    <use xlink:href="#fa-heartbeat"></use>
+                                </svg>
+                            </span>
+                            <h4>Periodically check the servers' status (known as health checks)</h4>
+                        </li>
+                        <li class="bg-white">
+                            <div class="process step-3"></div>
+                            <span>
+                                <svg class="fa-exchange">
+                                    <use xlink:href="#fa-exchange"></use>
+                                </svg>
+                            </span>
+                            <h4>Exchange information with other HAProxy nodes</h4>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="bg-apple">
+                <div class="wrap">
+                    <h2>Basic Features</h2>
+                    <ul class="flexblock features">
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-random">
+                                        <use xlink:href="#fa-random"></use>
+                                    </svg> Load Balancing
+                                </h2>
+                                Load balancing algorithms
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-sitemap">
+                                        <use xlink:href="#fa-sitemap"></use>
+                                    </svg> Monitoring
+                                </h2>
+                                Health checks, detecting and reacting to failure
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-file-text-o">
+                                        <use xlink:href="#fa-file-text-o"></use>
+                                    </svg> Logging and Statistics
+                                </h2>
+                                File log and web-based stats reporting interface
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap">
+                    <h1>Before Starting</h1>
+                    <p class="text-intro">Let's learn a little bit about the HAProxy Configuration</p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2>The Four Essential Sections</h2>
+                    <p class="text-intro"> of an HAProxy Configuration</p>
+                    <pre>
+      global
+          # global settings here
+
+      default
+          # defaults header
+
+      frontend
+          # a frontend that accepts requests from clients
+
+      backend
+          # servers that fulfill the requests
+          </pre>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2>Global</h2>
+                    <p class="text-intro">Place on the top of HAProxy config file</p>
+                    <pre>
+      global
+          maxconn 5000
+          log /dev/log local0
+          user haproxy
+          group haproxy
+          stats socket /run/haproxy/admin.sock user haproxy group haproxy mode 660 level admin
+          nbproc 2
+          nbthread 4
+            </pre>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2>Defaults</h2>
+                    <p class="text-intro">Will help reduce duplication, apply to all of the <b>frontend</b> and <b>backend</b> sections after it</p>
+                    <pre>
+      defaults
+          timeout connect 10s
+          timeout client 30s
+          timeout server 30s
+          log global
+          mode http
+          option httplog
+          maxconn 3000
+              </pre>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2>Frontend</h2>
+                    <p class="text-intro">Defines the IP addresses and ports that clients can connect to and maps to backend server</p>
+                    <pre>
+      frontend mSite
+          bind 10.0.0.3:80
+          bind 10.0.0.3:443 ssl crt /etc/ssl/certs/mysite.pem
+          use_backend api_servers if { path_beg /api/ }
+          default_backend web_servers
+          </pre>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2>Backend</h2>
+                    <p class="text-intro">Defines a group of servers that will be load balanced and assigned to handle requests</p>
+                    <pre>
+      backend web_servers
+          balance roundrobin
+          cookie SERVERUSED insert indirect nocache
+          option httpchk HEAD /whoami.aspx HTTP/1.0
+          default-server check maxconn 20
+          server server1 10.0.1.3:80 cookie server1 check
+          server server2 10.0.1.4:80 cookie server2 check
+            </pre>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap">
+                    <h1 class="text-landing">Let's get started</h1>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap">
+                    <h1 class="text-landing">#1</h1>
+                    <h1>Load Balancing </h1>
+                    <p class="text-intro">Load balancing algorithms</p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Round robin</strong></h3>
+                            <p class="text-intro">
+                                Is the default if you don't set the balance directive. Your servers will each receive an equal amount of traffic
+                            </p>
+                            <p> <b>web1</b> would get the first request. The second would go to <b>web2</b> . The third would go back to <b>web1</b> , etc. This works well when serving content that takes a short and consistent amount of time to generate,
+                                such as static web pages. It might not work as well for requests that take a variable amount of time to process, such as database queries because one server might become bogged down with more long-running requests than
+                                the other</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+        frontend mywebsite 
+            bind *:80 
+            default_backend webservers
+
+        backend web_servers
+            balance roundrobin
+            server web1 10.0.1.3:80
+            server web2 10.0.1.4:80
+              </pre>
+                            <figure>
+                                <img class="aligncenter" width="120%" src="./static/images/round_robin_algorithm-1.webp" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Weighted Round robin</strong></h3>
+                            <p class="text-intro">
+                                Same to round robin, but distribute the traffic more heavily to some by assigning a weight to them
+                            </p>
+                            <p> Each server in a backend can specify aweight, between 0 and 256, that determines the proportion of traffic it should receive. The number of requests that are forwarded to a server will be calculated by dividing its weight by
+                                the sum of all weights</p>
+
+                        </div>
+                        <div class="column">
+
+                            <pre>
+        frontend mywebsite 
+            bind *:80 
+            default_backend webservers
+
+        backend webservers 
+            balance roundrobin 
+            server web1 192.168.50.10:80 weight 1 
+            server web2 192.168.50.11:80 weight 3 
+                </pre>
+                            <figure>
+                                <img class="aligncenter" width="120%" src="./static/images/weighted_round_robin.png" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Leastconn</strong></h3>
+                            <p class="text-intro">
+                                Checks how many active TCP connections each server has and sends the next request to the server with the fewest
+                            </p>
+                            <p>The roundrobin algorithm shares traffic equally amongst servers, but doesn't take into account how busy a server is. Typical use case for leastconn is when load balancing something that can have long lived connections</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+        frontend mywebsite 
+            bind *:80 
+            default_backend webservers
+
+        backend webservers 
+            balance leastconn
+            server web1 192.168.50.10:80
+            server web2 192.168.50.11:80
+                  </pre>
+                            <figure>
+                                <img class="aligncenter" width="120%" src="./static/images/least_connections_algorithm.png" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Source</strong></h3>
+                            <p class="text-intro">
+                                Takes the source and destination IP address of the client and server and combines them to generate a unique hash key. This key is used to allocate the client to a particular server
+                            </p>
+                            <p>As the key can be regenerated if the session is broken this method of load balancing can ensure that the client request is directed to the same server that it was using previously. This is useful if it’s important that a client
+                                should connect to a session that is still active after a disconnection. For example, to retain items in a shopping cart between sessions.</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+        frontend mywebsite 
+            bind *:80 
+            default_backend webservers
+
+        backend webservers 
+            balance source
+            server web1 192.168.50.10:80
+            server web2 192.168.50.11:80
+                </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Hash URI</strong></h3>
+                            <p class="text-intro">
+                                Hash the URI, which includes everything after the first forward slash and before the first question mark and stores a hash of the URL along with the ID of the server that responded to that request last time to keep that request will be forwarded to the
+                                same server
+                            </p>
+                            <p>Useful for Cache server</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+          frontend mywebsite 
+              bind *:80 
+              default_backend cache_servers
+  
+          backend cache_servers 
+              balance uri 
+              server cache1 192.168.50.20:80 
+              server cache2 192.168.50.21:80 
+                  </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#2</h1>
+                    <h1>Monitoring</h1>
+                    <p class="text-intro">Be able to monitor servers with periodic health checks and automatically remove unhealthy nodes. Traffic will only be sent to machines that are up</p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>
+                  TCP-based heath checks.</strong></h3>
+                            <p class="text-intro">
+                                The standard and most basic check of HAProxy. It merely sends out a simple packet and waits for a reply back from the destination server
+                            </p>
+                            <p>Enable by adding <code>check</code> paramter to the <code>server</code> directive</p>
+                            <p><code>inter</code>: set interval check time (default is 2 seconds)</p>
+                            <p><code>fall 2</code>: server must fail 2 checks before it is considered down</p>
+                            <p><code>rise 5</code>: server must pass 5 checks before it is considered up</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+      frontend mywebsite 
+          bind *:80 
+          default_backend web_servers
+
+      backend web_servers 
+          balance roundrobin 
+          server web1 192.168.50.20:80 <code>check inter 10s fall 2 rise 5</code> 
+          server web2 192.168.50.21:80 <code>check inter 10s fall 2 rise 5</code> 
+              </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>HTTP-based health checks</strong></h3>
+                            <p class="text-intro">
+                                HTTP check is used when you want to verify that a specific website URL is healthy
+                            </p>
+                            <p>Enable HTTP check when set <code>mode http</code> in <code>backend</code> section. The check will pass if response status is <code>2xx</code> or <code>3xx</code></p>
+                            <p><code>option httpchk HEAD /whoami.aspx HTTP/1.0</code>: the check will use a HEAD request against the /whoami.aspx page using HTTP version 1.0</p>
+                            <p><code>http-check expect status 200</code>: check will pass only response status is <code>200</code>
+                            </p>
+                            <p><code>http-check expect rstatus ^2(\d){2}$</code>: check will pass only response status is <code>2xx</code>
+                            </p>
+                            <p><code>http-check disable-on-404</code>: the server will be disabled when check response status <code>404</code>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+      frontend mywebsite 
+          bind *:80 
+          default_backend web_servers
+
+      backend web_servers 
+          mode http 
+          balance roundrobin 
+          option httpchk HEAD /whoami.aspx HTTP/1.0
+          server web1 192.168.50.20:80 check 
+          server web2 192.168.50.21:80 check 
+          http-check expect status 200 
+          # http-check expect rstatus ^2(\d){2}$ 
+          # http-check expect rstring success 
+          http-check disable-on-404
+                </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Relying on the status of another server </strong></h3>
+                            <p class="text-intro">
+                                Used when you want to a server down if a server that it depends on is down
+                            </p>
+                            <p><code>track databases/db1</code>: <code>web1</code> is down when <code>primary_database/db1</code> is down
+                            </p>
+                            <p><code>use_backend primary_service if primarydbonline</code>: frontend <code>mywebsite</code> uses
+                                <code>primary_service</code> when <code>primary_database/db1</code> is up</p>
+                            <p><code>acl primarydbonline srv_is_up(primary_database/db1)</code>: define acl rule for checking <code>primary_database/db1</code> is up</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+      frontend mywebsite 
+          bind *:80 
+          <code>acl primarydbonline srv_is_up(primary_database/db1)</code> 
+          <code>use_backend primary_service if primarydbonline</code>
+          default_backend backup_service
+
+      backend primary_service 
+          mode http 
+          balance roundrobin 
+          server web1 192.168.50.20:80 check <code>track primary_database/db1</code>
+          server web2 192.168.50.21:80 check <code>track primary_database/db1</code>
+
+      backup_service 
+          mode http 
+          server backup1 192.168.50.20:80 check
+
+      backend primary_database 
+          mode tcp 
+          server db1 192.168.60.10:1433 check 
+                </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Setting a backup server </strong></h3>
+                            <p class="text-intro">
+                                A server is a <code>backup</code> means that it will not be used unless all others servers in the same
+                                <code>backend</code> are unavailable
+                            </p>
+                            <p></p>
+                        </div>
+                        <div class="column">
+                            <pre>
+      frontend mywebsite 
+          bind *:80 
+          default_backend webservice
+
+      backend webservice 
+          server service1 192.168.50.10:80 check 
+          server service2 192.168.50.11:80 check backup 
+              </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Observing all requests for errors </strong></h3>
+                            <p class="text-intro">
+                                Used when not necessary to do health check frequently
+                            </p>
+                            <p><code>layer4</code>: HAProxy will monitor for failed connection from any client</p>
+                            <p><code>layer7</code>: If client receives <code>503 Server Error</code> when accessing any pages, HAProxy will consider it a failed health check</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+frontend mywebsite 
+  bind *:80 
+  default_backend primary_service
+
+backend primary_service 
+  mode http 
+  balance roundrobin 
+  server cache1 192.168.50.20:80 check inter 2m fall 5 observe layer7 error-limit 1
+  server cache2 192.168.50.21:80 check backup 
+
+backend primary_database 
+  mode tcp 
+  server db1 192.168.60.10:1433 check  inter 2m fall 5  observe layer4 error-limit 1
+  server db2 192.168.50.21:3306 check backup 
+                  </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#3</h1>
+                    <h1>Logging and Statistics</h1>
+                    <p class="text-intro">Be able to get timely information about what's happening in HAProxy & comes with a built-in webpage that displays information about your proxies and backend servers
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Sending log to syslog</strong></h3>
+                            <p class="text-intro">
+                                HAProxy supports socket for <code>syslog</code> can get log
+                            </p>
+                            <p>
+                                <code>/dev/log</code>: socket path for storing HAProxy's log
+                            </p>
+                            <p><code>info</code>: the log level in <code>emerg, alert, crit, err, warning, notice, info</code></p>
+                        </div>
+                        <div class="column">
+                            <pre>
+    global 
+      log /dev/log local0 info 
+
+    defaults
+      log global
+      option httplog
+          </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Splitting up log messages by tag </strong></h3>
+                            <p class="text-intro">
+                                Enable tag to classify log. When rsyslog receives events from HAProxy, it checks its configuration to know which log file to write them to
+                            </p>
+                        </div>
+                        <div class="column">
+                            <p>/etc/haproxy/haproxy.cfg</p>
+                            <pre>
+      frontent 
+        alpha bind 192.168.50.31:80 
+        default_backend alpha_servers 
+        log-tag alpha
+
+      frontend 
+        nap bind 192.168.50.33:80 
+        default_backend nap 
+        log-tag nap 
+            </pre>
+                            <hr />
+                            <p>/etc/rsyslog.d/haproxy.conf</p>
+                            <pre>
+      # Send messages to files based on their tag 
+      if $programname startswith 'haproxy' then /var/log/haproxy.log 
+      if $programname == 'alpha' then /var/log/haproxy_alpha.log 
+      if $programname == 'nap' then /var/log/haproxy_nap.log
+            </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Separating errors into their own log file</strong></h3>
+                            <p class="text-intro">
+                                Enable by adding <code>option log-separate-errors</code>
+                            </p>
+                            <p>Log Level: Emergency (0), Alert (1), Critical (2), Error (3), Warning (4), Notice (5), Informational (6), Debug (7)</p>
+                        </div>
+                        <div class="column">
+                            <p>/etc/haproxy/haproxy.cfg</p>
+                            <pre>
+        defaults
+          log global 
+          option log-separate-errors 
+              </pre>
+                            <hr />
+                            <p>/etc/rsyslog.d/haproxy.conf</p>
+                            <pre>
+        # Send messages to files based on their tag 
+        if $programname startswith 'haproxy' then /var/log/haproxy.log 
+        if $programname startswith 'haproxy' and $syslogseverity <= 3 
+          then /var/log/haproxy_errors.log 
+              </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Statistics Web Page</strong></h3>
+                            <p class="text-intro">
+                                HAProxy comes with a built-in webpage that displays information about your proxies and backend servers.
+                            </p>
+                            <p></p>
+                        </div>
+                        <div class="column">
+                            <pre>
+        listen stats
+          bind *:8080
+          mode  http
+          maxconn  10
+          stats refresh 30s
+          stats admin if TRUE
+          stats  enable
+          stats  uri /
+          stats show-legends
+          stats  auth admin:1234aaAA
+                </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <iframe src="http://10.19.10.155:8080/" frameborder="0" width="100%" height="700px" allowfullscreen></iframe>
+                </div>
+            </section>
+
+
+            <section class="bg-apple">
+                <div class="wrap">
+                    <h2>Advanced Features</h2>
+                    <ul class="flexblock features">
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-th-list">
+                    <use xlink:href="#fa-th-list"></use>
+                  </svg> Stick tables
+                                </h2>
+                                Key-value in-memory storage for tracking requests
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-share-alt">
+                    <use xlink:href="#fa-share-alt"></use>
+                  </svg> ACLs
+                                </h2>
+                                Custom rules to do multiple actions
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-git-square">
+                    <use xlink:href="#fa-git-square"></use>
+                  </svg> Runtime API
+                                </h2>
+                                Ability to make changes to HAProxy during runtime
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section class="bg-apple aligncenter">
+                <span class="background dark" style="background-image:url('https://cdn.haproxy.com/wp-content/uploads/2018/09/haproxy-acl.png')"></span>
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#4</h1>
+                    <h1>Access Control Lists (ACLs)</h1>
+                    <p class="text-intro">
+                        Define custom rules for blocking malicious requests or choosing backends, redirect to HTTPS
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>ACLs Introduction</strong></h3>
+                            <p class="text-intro">
+                                Provides a flexible solution to perform content switching and generally to take decisions based on content extracted from the request, the response or any environmental status like <strong>blocking
+                  malicious requests,
+                  choosing backend, redirect to HTTPS...</strong>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+        # In order to define an "acl", the syntax is
+        acl <code>acl_name</code> <code>criterion</code>
+  
+        # Example
+        acl is_localhost src 127.0.0.1
+        http-request deny if HTTP_1.0
+               </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Blocking malicious requests</strong></h3>
+                            <p class="text-intro">
+                                The way to stop malicious behavior is by monitoring for messages that match a pattern. Patterns are set in HAProxy using ACLs
+                            </p>
+                            <p>
+                                <code>if HTTP_1.0</code> A number of attacks use HTTP/1.0 as the protocol version because that’s the version supported by some bots
+                            </p>
+                            <p><code>if { req.hdr(user-agent) -i -m sub curl phantomjs slimerjs }</code> User-Agent request header contains the string <code>curl, phantomjs, slimerjs</code> headless browsers that could be used to automate an attack
+                            </p>
+                            <p><code>unless { req.hdr(user-agent) -m found }</code> User-Agent not found</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+    frontend mysite
+      http-request deny if HTTP_1.0
+      http-request deny if { req.hdr(user-agent) -i -m sub curl phantomjs slimerjs }
+      http-request deny unless { req.hdr(user-agent) -m found }
+                   </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Choosing backend</strong></h3>
+                            <p class="text-intro">
+                                Inspects each HTTP request and check whether they match rules or not, then the request can be forwarded to a specific <code>backend</code>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+    frontend mysite
+      acl is_api path_begin -i /api
+      use_backend apiservers if is_api
+  
+      acl ismobile req.hdr(User-Agent) -i -m reg (android|iphone) 
+      use_backend mobileservers if ismobile 
+  
+      redirect scheme https if !{ ssl_fc }
+      
+      default_backend webservers
+                     </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <span class="background dark" style="background-image:url('https://cdn.haproxy.com/wp-content/uploads/2018/09/Stick-Tables-header.png')"></span>
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#5</h1>
+                    <h1>Stick Tables</h1>
+                    <p class="text-intro">Fast in-memory key-value storage, created to solve problem of server persistence and tracking requests for defending against types of bot threats
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Server Persistence</strong></h3>
+                            <p class="text-intro">
+                                With stick tables, HAProxy can store a piece of information, such as IP address, cookie, ... and associate with a server then forward the request has same piece of information to the same server
+                            </p>
+                            <strong>Usecase 1: </strong> We have a 2 SQL Server in master-master replication, when the primary goes down and then comes back up, the connections will be divided into 2 servers, then cause duplicated data. Therefore, stick
+                            on 1 server makes all connection always connect to the same server all time
+                            </p>
+                            <p>
+                                <strong>Usecase 2: </strong> Be like session state, keep the client connects to the same server all time
+                            </p>
+                        </div>
+                        <div class="column">
+                            <figure>
+                                <img class="aligncenter" src="https://cdn.haproxy.com/wp-content/uploads/2018/09/StickTables-Using.png" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Server Persistence</strong></h3>
+                            <p class="text-intro">
+                                Example for database persistence configuration
+                            </p>
+                            <p>
+                                <code>type integer</code> is a type of key in stick tables. HAProxy supports storing <code>ip</code>,
+                                <code>string</code>. In the example configuration, stick table stores the key is <code>1</code> and the value is <code>server_id</code>
+                            </p>
+                            <p>
+                                <code>size 1</code> is limited row of stick tables
+                            </p>
+                            <p><code>on-marked-down shutdown-sessions</code> causes HAProxy to close all existing connections to a backend when it goes down </p>
+
+                        </div>
+                        <div class="column">
+                            <pre>
+    backend db
+      stick-table type integer size 1 expire 1d
+      stick on int(1)
+      server db1 10.18.200.202:7220 check on-marked-down shutdown-sessions
+      server db2 10.18.200.209:7220 check backup on-marked-down shutdown-sessions
+                </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Tracking Request</strong></h3>
+                            <p class="text-intro">
+                                Stick tables can collect and store data about requests and provide that for preventing DDoS attack (HTTP Flood, Slowloris, ...)
+                            </p>
+                            <p></p>
+                        </div>
+                        <div class="column">
+                            <figure>
+                                <img class="aligncenter" src="https://cdn.haproxy.com/wp-content/uploads/2018/11/image2.gif" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Tracking Request</strong></h3>
+                            <p class="text-intro">
+                                Setting request rate limits, will track the number of requests over the configurable period time then deny the request if reaching rate limits
+                            </p>
+                            <p><code>http_req_rate(10s)</code> counter will report the number of requests over 10 seconds, defined in stick tables</p>
+                            <p><code>http-request track-sc0 src table per_ip_rates if METH_POST</code> track HTTP request with stick table defined above if HTTP Method is POST </p>
+                            <p> <code>http-request deny deny_status 429 sc_http_req_rate(0) gt 100</code> request will be denied if the number of request is greater than 100 with response status is <code>429
+                  Too Many Requests</code> </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+      backend per_ip_rates
+        stick-table type ip size 1m expire 10m store http_req_rate(10s)
+
+      frontend fe_mywebsite
+        bind *:80
+        http-request track-sc0 src table per_ip_rates if METH_POST
+        http-request deny deny_status 429 if { sc_http_req_rate(0) gt 100 }
+                 </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Tracking Request</strong></h3>
+                            <p class="text-intro">
+                                Protecting TCP (non-HTTP) services
+                            </p>
+                            <p><code>conn_cur</code> the number of current connection at the same time</p>
+                            <p><code>conn_rate(1m)</code> the number of connection over 1 minutes</p>
+                            <p><code>sc_conn_cur(0) gt 1</code> tcp reject if the number of current connections is greater than 1</p>
+                            <p><code>sc_conn_rate(0) gt 5</code> tcp reject if the number of connections in 1 minutes is greater than 5
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+frontend per_ip_connections
+  stick-table type ip size 1m expire 1m store conn_cur,conn_rate(1m)
+
+frontend fe_smtp
+  mode tcp
+  bind :25
+  tcp-request content track-sc0 src table per_ip_connections
+  tcp-request content reject if { sc_conn_cur(0) gt 1 } || { sc_conn_rate(0) gt 5 }
+  default_backend be_smtp
+                 </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Peers</strong></h3>
+                            <p class="text-intro">
+                                Use for active-active clusters HAProxy, share a stick table data over HAProxy nodes to track all incoming requests
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+    peers mypeers
+      peer centos7vert 192.168.122.64:10000
+      peer shorepoint 192.168.122.1:10000
+
+    stick-table type string len 32 size 100k expire 30m peers mypeers
+                          </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#6</h1>
+                    <h1>Runtime API</h1>
+                    <p class="text-intro">
+                        Real-time statistics and dynamic update configuration
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Introduction</strong></h3>
+                            <p class="text-intro">
+                                Runtime API has ability to retrieve detail real-time statistics, update configuration in runtime vie TCP and Unix socket. The Runtime API can be conveniently accessed using the interactive command provided by <code>socat</code>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+  global
+    stats socket ipv4@127.0.0.1:9999 level admin
+    stats socket /var/run/haproxy.sock mode 666 level admin
+    stats timeout 2m
+                  </pre>
+                            <hr />
+                            <p>Accessed Runtime API using <code>socat</code></p>
+                            <pre>
+  $ socat readline /var/run/haproxy.sock
+  $ socat readline tcp4-connect:127.0.0.1:9999
+  $ echo "help" | socat stdio /var/run/haproxy.sock
+  $ echo "show stat" | socat stdio /var/run/haproxy.sock
+                  </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Real-time statistics</strong></h3>
+                            <p class="text-intro">
+                                Runtime API can support to retrieve real-time data of HAProxy
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+  show info: report information about the running process
+  show stat: report counters for each proxy and server
+  show table [id]: report stick-table usage stats or dump this table's contents
+  show servers state [id]: dump volatile server information (for backend)
+  show backend: list backends in the current running config
+  show acl [id]: report available acls or dump an acl's contents
+                    </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Dynamic update configuration</strong></h3>
+                            <p class="text-intro">
+                                Runtime API can support to update configuration in runtime
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+  set server: change a server's state, weight or address
+  set table [id] : update or create a stick table entry's data
+  set maxconn global : change the per-process maxconn setting
+  set maxconn server : change a server's maxconn setting
+  set maxconn frontend : change a frontend's maxconn setting
+  set timeout : change a timeout setting
+  enable frontend : re-enable specific frontend
+  shutdown session : kill a specific session
+                      </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">WHAT'S NEXT?</h1>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <h2>What's new in HAProxy 1.8?</h2>
+                    <ul class="flexblock features">
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-share-alt">
+                                        <use xlink:href="#fa-share-alt"></use>
+                                    </svg> Service Discovery with DNS
+                                </h2>
+                                Dynamically scales backend over DNS
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-rocket">
+                                        <use xlink:href="#fa-rocket"></use>
+                                    </svg> HTTP/2 Support
+                                </h2>
+                                Clients communicate with LB via HTTP/2 protocol
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-random">
+                                        <use xlink:href="#fa-random"></use>
+                                    </svg> Multi-threading
+                                </h2>
+                                Split processing arross multiple threads
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-refresh">
+                                        <use xlink:href="#fa-refresh"></use>
+                                    </svg> Hitless Reload Configuration
+                                </h2>
+                                Reloads do not lose any connections
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-file-archive-o">
+                                        <use xlink:href="#fa-file-archive-o"></use>
+                                    </svg> HTTP Compression
+                                </h2>
+                                Compress HTTP responses from backend
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg class="fa-sticky-note">
+                                        <use xlink:href="#fa-sticky-note"></use>
+                                    </svg> Caching small object
+                                </h2>
+                                Offload static content from the backend servers
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#7</h1>
+                    <h1>Service Discovery with DNS</h1>
+                    <p class="text-intro">
+                        Integrate HAProxy with Consul by using DNS for service discovery
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2><strong>What is Service Discovery?</strong></h2>
+                    <p class="text-intro">
+                        According to Wikipedia, Service Discovery is the automatic detection of devices and services offered by these devices on a computer network
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2><strong>What is Consul?</strong></h2>
+                    <p class="text-intro">
+                        Consul is a service mesh solution with service discovery, configuration and segmentation functionality and is developed by Hashi Corp
+                    </p>
+                    <p class="text-intro">
+                        Consul’s purpose is to centralize and manage information related to service and application locations
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2><strong>How does Consul work with HAProxy for Service Discovery?</strong></h2>
+                    <p class="text-intro">
+                        Consul clients run on application servers and register locally running services with Consul servers, also perform health checks on the local services and provide services' DNS for querying
+                    </p>
+                    <p class="text-intro">
+                        HAProxy is used for load balancing and routing HTTP traffic to services
+                    </p>
+                    <p class="text-intro">
+                        Consul-template running on HAProxy instances is used for generating the HAProxy configuration and reloading HAProxy when services (HAProxy backends) are added or removed
+                    </p>
+                    <p class="text-intro">
+                        HAProxy uses DNS for querying Consul and dynamically scaling service nodes (HAProxy backend servers)
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current aligncenter">
+                <div class="wrap size-50">
+                    <figure>
+                        <img class="aligncenter" src="https://cdn.haproxy.com/wp-content/uploads/2018/04/architecture-diagram.png" alt="haproxy">
+                    </figure>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#8</h1>
+                    <h1>HTTP/2</h1>
+                    <p class="text-intro">
+                        Support for clients to communicate with the load balancer via the HTTP/2 protocol.
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2><strong>What is HTTP/2?</strong></h2>
+                    <p class="text-intro">
+                        HTTP/2 (originally named HTTP/2.0) is the first new version of HTTP since HTTP 1.1. It was derived from the earlier experimental SPDY protocol, originally developed by Google.
+                    </p>
+                    <p class="text-intro">
+                        HTTP/2 will make our applications faster, simpler, and more robust — a rare combination — by allowing us to undo many of the HTTP/1.1
+                    </p>
+                    <p class="text-intro">
+                        The primary goals for HTTP/2 are to reduce latency by enabling full request and response multiplexing, minimize protocol overhead via efficient compression of HTTP header fields, and add support for request prioritization and server push
+                    </p>
+                    <hr>
+                    <figure>
+                        <img class="aligncenter" src="https://kinsta.com/wp-content/uploads/2016/04/http-timeline.png" alt="haproxy">
+                    </figure>
+                </div>
+            </section>
+            <section class="bg-apple slide aligncenter">
+                <div class="wrap size-50">
+                    <h2><strong>HTTP/2 Server Push</strong></h2>
+                    <figure>
+                        <img class="aligncenter" width="150%" src="https://blog.cloudflare.com/content/images/2016/04/http2-server-push-2.png" alt="haproxy">
+                    </figure>
+                </div>
+            </section>
+            <section class="bg-apple slide aligncenter">
+                <div class="wrap size-50">
+                    <h2><strong>HTTP/2 Multiplexing</strong></h2>
+                    <figure>
+                        <img class="aligncenter" src="https://blog.cloudflare.com/content/images/2015/12/http-2-multiplexing.png" alt="haproxy">
+                    </figure>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Enable HTTP/2 in HAProxy</strong></h3>
+                            <p class="text-intro">
+                                HAProxy 1.8 now supports HTTP/2 on the client side (in the frontend sections) and can act as a gateway between HTTP/2 clients and HTTP/1.1 and HTTP/1.0 applications.
+                            </p>
+                            <pre>
+  frontend myapp
+    bind :443 ssl crt /path/to/cert.crt alpn h2,http/1.1
+    mode http
+                            </pre>
+                        </div>
+                        <div class="column">
+                            <figure>
+                                <img class="aligncenter" src="https://ops.tips/blog/-/images/haproxy-http2-overview.svg" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#9</h1>
+                    <h1>HTTP Compression</h1>
+                    <p class="text-intro">
+                        HAProxy compresses the body of a response before it's forwarded to a client
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2><strong>What is HTTP Compression?</strong></h2>
+                    <p class="text-intro">
+                        HTTP compression is a technique that allows a server to compress the body of a response before it's forwarded to a client, to reduce the size of the response and limit the number of bytes to send out and enable faster delivery
+                    </p>
+                    <p class="text-intro">
+                        HTTP compression uses public domain compression algorithms, like gzip and compress, to compress XHTML, JavaScript, CSS, and other text files at the server
+                    </p>
+                    <pre>
+      # Request Header
+      Host: www.example.com
+      Accept-Encoding: gzip, deflate, br
+      
+      # Response Header
+      Server: Microsoft-IIS/7.5 
+      Accept-Ranges: bytes 
+      Content-Length: 438 
+      Content-Type: text/html; charset=UTF-8 
+      Content-Encoding: gzip
+                  </pre>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>HTTP Compression in HAProxy</strong></h3>
+                            <p class="text-intro">
+                                HAProxy can compress responses if a server does not do it for a client that supports it.
+                            </p>
+                            <p>
+                                <code>Compression offloading</code>: compresses all the streams on behalf of the servers
+                            </p>
+                            <p>
+                                <code>Compression catch up</code>: (default) compresses only the streams where the client supports compression but the server did not compress the response
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+    backend mSite
+        compression algo gzip
+        compression type text/css text/html text/javascript application/javascript text/plain text/xml application/json
+        # compression offload
+                          </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#10</h1>
+                    <h1>Caching Small Object</h1>
+                    <p class="text-intro">
+                        Offload some of static content delivery from the application servers so they can perform their primary duty
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h3><strong>Caching small object in HAProxy</strong></h3>
+                            <p class="text-intro">
+                                Objects such as CSS, JS, and icon files are cached in memory. The maximum object size is limited to the value of the global parameter <code>tune.bufsize</code> (by default,16KB.)
+                            </p>
+                            <div class="text-intro">Objects are cached only:</div>
+                            <br>
+                            <ul>
+                                <li>Total object size is less than <code>tune.bufsize</code></li>
+                                <li>HTTP response code is 200 (status)</li>
+                                <li>Response has a content-length header and its size + response headers is less than <code>tune.bufsize</code></li>
+                                <li>Response does not have a <code>Cache-Control: no-cache</code> header</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <pre>
+    cache test
+        total-max-size 4
+        max-age 240
+        
+        
+    frontend  fe_main
+        bind *:80
+        http-request cache-use test
+        http-response cache-store test
+        default_backend be_main
+                          </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#11</h1>
+                    <h1>Hitless reload configuration</h1>
+                    <p class="text-intro">
+                        Reloads of HAProxy do not lose any connections for upgrades or changes to the configuration.
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h2><strong>What is Hitless Reload?</strong></h2>
+                            <p class="text-intro">
+                                Hitless reload is the way to update the running configuration in HAProxy, that the new process reads the sockets from old process via the socket, so that there are no refused connections
+                            </p>
+                            <p class="text-intro">
+                                Hitless reload are available in HAProxy 1.8 and later. It is better than the old version's reload, because the old reload can refuse connection for 100ns.
+                            </p>
+                        </div>
+                        <div class="column">
+                            <figure>
+                                <img class="aligncenter" src="https://cdn.haproxy.com/wp-content/uploads/2018/05/HitlessReloadsAnimated.gif" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h2><strong>Configuring Hitless Reload in HAProxy</strong></h2>
+                            <p class="text-intro">
+                                In the configuration file's 'global' section at the top, locate the 'stats socket' line and add <code>expose-fd listeners</code> to this line
+                            </p>
+                        </div>
+                        <div class="column">
+                            <pre>
+    global
+        stats socket /run/haproxy/haproxy.sock mode 660 level admin <code>expose-fd listeners</code>
+                            </pre>
+                        </div>
+                    </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1 class="text-landing">#12</h1>
+                    <h1>Multi-threading</h1>
+                    <p class="text-intro">
+                        Splits processing across multiple threads while sharing the same memory space
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-50">
+                    <h2><strong>From Multi-processing to Multi-threading</strong></h2>
+                    <p class="text-intro">
+                        Starting with HAProxy version 1.1.7 released in 2002, it has been possible to automatically start multiple HAProxy processes to achieve better performance. However, multiprocess configurations come with certain limitations below.
+                    </p>
+                    <ul>
+                        <li>
+                            Stick-tables were per-process and data couldn’t be shared between multiple processes
+                        </li>
+                        <li>
+                            Maxconn values (global, frontend, server) were counted per process
+                        </li>
+                        <li>
+                            Health checks are performed by each individual process, affecting network traffic and causing inconsistencies
+                        </li>
+                    </ul>
+                    <br>
+                    <p class="text-intro">
+                        In version 1.8, HAProxy supports for an additional mode — using threads instead of processes, which has an advantage in that it solves all of the limitations listed above.
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h2><strong>Configuring Multi-threading</strong></h2>
+                            <p class="text-intro">
+                                By default, HAProxy will start one process and one thread. To start more threads, you should set the option <code>nbthread</code> in the global configuration section
+                            </p>
+                            <p><code>nbproc 1</code> start one process</p>
+                            <p><code>nbthread 4</code> start a process with 4 threads</p>
+                        </div>
+                        <div class="column">
+                            <pre>
+    global
+        nbproc 1
+        nbthread 4
+                            </pre>
+                        </div>
+                    </div>
+            </section>
+
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1>HAProxy at NEXCEL</h1>
+                </div>
+            </section>
+            <section class="bg-apple slide current aligncenter">
+                <div class="wrap size-50">
+                    <h2><strong>HAProxy's current state at NEXCEL</strong></h2>
+                    <p class="text-intro">
+                        Version: 1.7
+                    </p>
+                    <div class="column">
+                        <figure>
+                            <img class="aligncenter" src="./static/images/hanexcel.png" alt="haproxy">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-40">
+                    <h2><strong>What need to do next?</strong></h2>
+                    <ul class="text-intro">
+                        <li>Upgrade to version 1.8</li>
+                        <li>Enable HTTP/2, Hitless reload configuration, caching small object</li>
+                        <li>Use stick-table and ACL for preventing DDos or Bot attack</li>
+                        <li>Apply service discovery (Consul)</li>
+                        <li>Monitor HAProxy nodes, monitor services' information</li>
+                        <li>Faster scale HAProxy node (Docker, Vagrant, Powershell DSC, ...)</li>
+                        <li>HAProxy configuration management site</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1>Faster Scale HAProxy node</h1>
+                    <p class="text-intro">
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1>Docker</h1>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap size-40">
+                    <h2><strong>HAProxy in Docker problem?</strong></h2>
+                    <ul class="text-intro">
+                        <li>Have to map machine ports to container port when add/update web server ports</li>
+                        <li>Need to learn more deeply about Docker for handle issue because HAProxy node is very important</li>
+                        <li>Hard for hitless reloading configuration when run HAProxy in container</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1>Ansible</h1>
+                    <p class="text-intro">
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide current">
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <h2><strong>Ansible Introduction</strong></h2>
+                            <ul class="text-intro">
+                                <li><code>Ansible</code> is simple open source IT engine which automates application deployment, intra service orchestration, cloud provisioning and many other IT tools.</li>
+                                <li><code>Ansible</code> is easy to deploy because it does not use any agents or custom security infrastructure.</li>
+                                <li><code>Ansible</code> uses playbook to describe automation jobs, and playbook uses very simple language i.e. YAML</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <figure>
+                                <img class="aligncenter" src="  https://assets.sysadmincasts.com/e/g/47-ansible-parallel-task-execution.gif" alt="haproxy">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-apple aligncenter">
+                <div class="wrap size-50">
+                    <h1>Ansible for infrastructure automation</h1>
+                    <p class="text-intro">
+                        Load Balancing via HAProxy, High Availability for HAProxy node via Keepalived and Service Discovery via Consul, Consul Template
+                    </p>
+                </div>
+            </section>
+            <section class="bg-apple slide aligncenter">
+                <h2><strong>HAProxy, Consul and Ansible ecosystem</strong></h2>
+                <figure>
+                    <img class="aligncenter" src="./static/images/hanexcel-new.png" alt="haproxy">
+                </figure>
+            </section>
+            <section class="bg-apple aligncenter">
+                <h2 class="text-emoji zoomIn">😎</h2>
+                <h3><strong>Thank you!</strong></h2>
+                    <p><a href="https://twitter.com/webslides" title="@HAProxy on Twitter">HAProxy</a></p>
+            </section>
+        </article>
+    </main>
+    <script src="../static/js/webslides.js"></script>
+    <script>
+        window.ws = new WebSlides();
+    </script>
+
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="../static/js/svg-icons.js"></script>
+</body>
+
+</html>
