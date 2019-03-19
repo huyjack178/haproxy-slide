@@ -68,6 +68,7 @@
             </section>
 
             <section class="bg-apple">
+                <span class="background dark" style="background-image:url('../static/images/agenda.jpg');"></span>
                 <div class="wrap">
                     <div class="">
                         <div class="flex-content">
@@ -164,7 +165,7 @@
                     <h1 class="text-landing">Why HAProxy?</h1>
                 </div>
             </section>
-            <section class="bg-apple aligncenter">
+            <section class="bg-gray aligncenter">
                 <span class="background dark" style="background-image:url('../static/images/coding.jpg');"></span>
                 <div class="wrap">
                     <h2>Popular Load Balancers</h2>
@@ -191,65 +192,69 @@
             <section class="bg-apple">
                 <div class="wrap">
                     <div class="grid vertical-align">
-                        <div class="column">
+                        <div class="column fadeIn slow">
                             <figure>
-                                <img class="aligncenter whitelogo" width="120%" src="./static/images/logos/haproxy-1.png" alt="haproxy">
+                                <img class="whitelogo" width="100%" src="./static/images/logos/haproxy-1.png" alt="haproxy">
                             </figure>
                         </div>
-                        <div class="column">
-                            <h3><strong>Light weight and easy to scale</strong></h3>
+                        <div class="column fadeInUp">
+                            <h3><strong>Light weight and easy for scaling</strong></h3>
                             <p class="text-intro">
-                                Is the default if you don't set the balance directive. Your servers will each receive an equal amount of traffic
+                                Single process, event-driven system minimizes resource utilization and may scale from 100 to 200.000 simultaneous connections per second.
                             </p>
-                            <h3><strong>Fast and free</strong></h3>
+                            <h3><strong>Reliable and Fast</strong></h3>
                             <p class="text-intro">
-                                Is the default if you don't set the balance directive. Your servers will each receive an equal amount of traffic
+                                Less latency and zero-downtime maintenance
+                            </p>
+                            <h3><strong>Flexible and Powerfull</strong></h3>
+                            <p class="text-intro">
+                                Easy to customize with a different variety of configuration kinds (front-end, back-end, acl rules, health checking ...)
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="bg-apple aligncenter">
-                <div class="wrap size-50">
-                    <h1>How does HAProxy work?</h1>
-                    <p class="text-intro">Event-driven architecture to receive requests from clients and dispatch them quickly to backend servers</p>
-                </div>
-            </section>
-            <section class="bg-apple">
                 <div class="wrap">
-                    <h2><strong>Once HAProxy is started. It does exactly 3 tasks</strong></h2>
-                    <hr class="bg-gray">
-                    <ul class="flexblock steps aligncenter">
-                        <li class="bg-white">
-                            <span>
-                                <svg class="fa-random">
-                                    <use xlink:href="#fa-random"></use>
-                                </svg>
-                            </span>
-                            <h4>Process incoming connections</h4>
-                        </li>
-                        <li class="bg-white">
-                            <div class="process step-2"></div>
-                            <span>
-                                <svg class="fa-heartbeat">
-                                    <use xlink:href="#fa-heartbeat"></use>
-                                </svg>
-                            </span>
-                            <h4>Periodically check the servers' status (known as health checks)</h4>
-                        </li>
-                        <li class="bg-white">
-                            <div class="process step-3"></div>
-                            <span>
-                                <svg class="fa-exchange">
-                                    <use xlink:href="#fa-exchange"></use>
-                                </svg>
-                            </span>
-                            <h4>Exchange information with other HAProxy nodes</h4>
-                        </li>
-                    </ul>
+                    <h1 class="text-landing">How it works?</h1>
                 </div>
             </section>
-
+            <section class="bg-gray">
+                <div class="wrap">
+                    <div class="">
+                        <div class="flex-content">
+                            <h3>Once HAProxy is started. It does exactly 3 tasks</h3>
+                            <hr class="bg-black">
+                            <ul class="flexblock specs fadeInUp">
+                                <li>
+                                    <div>
+                                        <svg class="fa-random">
+                                            <use xlink:href="#fa-random"></use>
+                                        </svg>
+                                        <h1>Process incoming connections</h1>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <svg class="fa-heartbeat">
+                                                <use xlink:href="#fa-heartbeat"></use>
+                                        </svg>
+                                        <h1>Periodically check the servers' status (known as health checks)</h1>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <svg class="fa-exchange">
+                                            <use xlink:href="#fa-exchange"></use>
+                                        </svg>
+                                        <h1>Exchange information with other HAProxy nodes</h1>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="bg-apple">
                 <div class="wrap">
                     <h2>Basic Features</h2>
@@ -293,92 +298,101 @@
                     <p class="text-intro">Let's learn a little bit about the HAProxy Configuration</p>
                 </div>
             </section>
-            <section class="bg-apple slide current">
-                <div class="wrap size-50">
-                    <h2>The Four Essential Sections</h2>
-                    <p class="text-intro"> of an HAProxy Configuration</p>
-                    <pre>
-      global
-          # global settings here
+            <section class="bg-blue slide current">
+                <div class="wrap size-70">
+                    <div class="slideInLeft"> 
+                        <h2><strong>The Four Essential Sections</strong></h2>
+                        <p class="text-intro"> of an HAProxy Configuration</p>
+                    </div>
+                    <hr class="bg-gray">
+                    <pre class="slideInRight">
+    global
+        # global settings here
 
-      default
-          # defaults header
+    default
+        # defaults header
 
-      frontend
-          # a frontend that accepts requests from clients
+    frontend
+        # a frontend that accepts requests from clients
 
-      backend
-          # servers that fulfill the requests
-          </pre>
+    backend
+        # servers that fulfill the requests
+                    </pre>
                 </div>
             </section>
             <section class="bg-apple slide current">
-                <div class="wrap size-50">
-                    <h2>Global</h2>
-                    <p class="text-intro">Place on the top of HAProxy config file</p>
-                    <pre>
-      global
-          maxconn 5000
-          log /dev/log local0
-          user haproxy
-          group haproxy
-          stats socket /run/haproxy/admin.sock user haproxy group haproxy mode 660 level admin
-          nbproc 2
-          nbthread 4
-            </pre>
+                <div class="wrap size-70">
+                    <div class=""> 
+                        <h2><strong>Global</strong></h2>
+                        <p class="text-intro">Place on the top of HAProxy config file. Settings under <code>global</code> affect HAProxy at a low level</p>
+                    </div>
+                    <hr class="bg-gray">
+                    <pre class="fadeInUp">
+    global
+        maxconn 5000
+        log /dev/log local0
+        user haproxy
+        group haproxy
+        stats socket /run/haproxy/admin.sock 
+        nbproc 2
+        nbthread 4
+                    </pre>
                 </div>
             </section>
             <section class="bg-apple slide current">
-                <div class="wrap size-50">
-                    <h2>Defaults</h2>
-                    <p class="text-intro">Will help reduce duplication, apply to all of the <b>frontend</b> and <b>backend</b> sections after it</p>
-                    <pre>
-      defaults
-          timeout connect 10s
-          timeout client 30s
-          timeout server 30s
-          log global
-          mode http
-          option httplog
-          maxconn 3000
-              </pre>
+                <div class="wrap size-70">
+                    <h2><strong>Defaults</strong></h2>
+                    <p class="text-intro">Will help reduce duplication, affect all of the <code>frontend</code> and <code>backend</code> sections after it</p>
+                    <hr class="bg-gray">
+                    <pre class="zoomIn">
+    defaults
+        timeout connect 10s
+        timeout client 30s
+        timeout server 30s
+        log global
+        mode http
+        option httplog
+        maxconn 3000
+                    </pre>
                 </div>
             </section>
             <section class="bg-apple slide current">
-                <div class="wrap size-50">
-                    <h2>Frontend</h2>
+                <div class="wrap size-70">
+                    <h2><strong>Frontend</strong></h2>
                     <p class="text-intro">Defines the IP addresses and ports that clients can connect to and maps to backend server</p>
-                    <pre>
-      frontend mSite
-          bind 10.0.0.3:80
-          bind 10.0.0.3:443 ssl crt /etc/ssl/certs/mysite.pem
-          use_backend api_servers if { path_beg /api/ }
-          default_backend web_servers
-          </pre>
+                    <hr class="bg-gray">
+                    <pre class="slideInLeft">  
+    frontend mSite
+        bind 10.0.0.3:80
+        bind 10.0.0.3:443 ssl crt /etc/ssl/certs/mysite.pem
+        use_backend api_servers if { path_beg /api/ }
+        default_backend web_servers
+                    </pre>
                 </div>
             </section>
             <section class="bg-apple slide current">
-                <div class="wrap size-50">
-                    <h2>Backend</h2>
+                <div class="wrap size-70">
+                    <h2><strong>Backend</strong></h2>
                     <p class="text-intro">Defines a group of servers that will be load balanced and assigned to handle requests</p>
-                    <pre>
-      backend web_servers
-          balance roundrobin
-          cookie SERVERUSED insert indirect nocache
-          option httpchk HEAD /whoami.aspx HTTP/1.0
-          default-server check maxconn 20
-          server server1 10.0.1.3:80 cookie server1 check
-          server server2 10.0.1.4:80 cookie server2 check
-            </pre>
+                    <hr class="bg-gray">
+                    <pre class="slideInRight">
+    backend web_servers
+        balance roundrobin
+        cookie SERVERUSED insert indirect nocache
+        option httpchk HEAD /whoami.aspx HTTP/1.0
+        default-server check maxconn 20
+        server server1 10.0.1.3:80 cookie server1 check
+        server server2 10.0.1.4:80 cookie server2 check
+                    </pre>
                 </div>
             </section>
             <section class="bg-apple aligncenter">
-                <div class="wrap">
+                <div class="wrap zoomIn">
                     <h1 class="text-landing">Let's get started</h1>
                 </div>
             </section>
 
-            <section class="bg-apple aligncenter">
+            <section class="bg-green aligncenter">
                 <div class="wrap">
                     <h1 class="text-landing">#1</h1>
                     <h1>Load Balancing </h1>
@@ -393,22 +407,23 @@
                             <p class="text-intro">
                                 Is the default if you don't set the balance directive. Your servers will each receive an equal amount of traffic
                             </p>
+                            <hr class="bg-gray">
                             <p> <b>web1</b> would get the first request. The second would go to <b>web2</b> . The third would go back to <b>web1</b> , etc. This works well when serving content that takes a short and consistent amount of time to generate,
                                 such as static web pages. It might not work as well for requests that take a variable amount of time to process, such as database queries because one server might become bogged down with more long-running requests than
                                 the other</p>
                         </div>
                         <div class="column">
-                            <pre>
-        frontend mywebsite 
-            bind *:80 
-            default_backend webservers
+                            <pre class="slideInRight">
+    frontend mywebsite 
+        bind *:80 
+        default_backend webservers
 
-        backend web_servers
-            balance roundrobin
-            server web1 10.0.1.3:80
-            server web2 10.0.1.4:80
-              </pre>
-                            <figure>
+    backend web_servers
+        balance <code class="bg-red">roundrobin</code> 
+        server web1 10.0.1.3:80
+        server web2 10.0.1.4:80
+                            </pre>
+                            <figure class="slideInRight">
                                 <img class="aligncenter" width="120%" src="./static/images/round_robin_algorithm-1.webp" alt="haproxy">
                             </figure>
                         </div>
@@ -419,30 +434,31 @@
                 <div class="wrap">
                     <div class="grid vertical-align">
                         <div class="column">
-                            <h3><strong>Weighted Round robin</strong></h3>
-                            <p class="text-intro">
-                                Same to round robin, but distribute the traffic more heavily to some by assigning a weight to them
-                            </p>
-                            <p> Each server in a backend can specify aweight, between 0 and 256, that determines the proportion of traffic it should receive. The number of requests that are forwarded to a server will be calculated by dividing its weight by
-                                the sum of all weights</p>
-
+                                <h3><strong>Weighted Round robin</strong></h3>
+                                <p class="text-intro">
+                                    Same to round robin, but distribute the traffic more heavily to some by assigning a <code>weight</code>  to them
+                                </p>
+                                <hr class="bg-gray">
+                                <p> Each server in a backend can specify a <code>weight</code> , between 0 and 256, that determines the proportion of traffic it should receive. The number of requests that are forwarded to a server will be calculated by dividing its weight by
+                                    the sum of all weights</p>
+    
                         </div>
-                        <div class="column">
-
+                        <div class="column zoomIn">
                             <pre>
-        frontend mywebsite 
-            bind *:80 
-            default_backend webservers
+frontend mywebsite 
+    bind *:80 
+    default_backend webservers
 
-        backend webservers 
-            balance roundrobin 
-            server web1 192.168.50.10:80 weight 1 
-            server web2 192.168.50.11:80 weight 3 
-                </pre>
+backend webservers 
+    balance <code class="bg-red">roundrobin</code> 
+    server web1 192.168.50.10:80 <code class="bg-green">weight</code> 1 
+    server web2 192.168.50.11:80 <code class="bg-green">weight</code> 3 
+                            </pre>
                             <figure>
                                 <img class="aligncenter" width="120%" src="./static/images/weighted_round_robin.png" alt="haproxy">
                             </figure>
                         </div>
+                       
                     </div>
                 </div>
             </section>
@@ -454,18 +470,19 @@
                             <p class="text-intro">
                                 Checks how many active TCP connections each server has and sends the next request to the server with the fewest
                             </p>
+                            <hr class="bg-gray">
                             <p>The roundrobin algorithm shares traffic equally amongst servers, but doesn't take into account how busy a server is. Typical use case for leastconn is when load balancing something that can have long lived connections</p>
                         </div>
-                        <div class="column">
+                        <div class="column fadeInUp">
                             <pre>
-        frontend mywebsite 
-            bind *:80 
-            default_backend webservers
+    frontend mywebsite 
+        bind *:80 
+        default_backend webservers
 
-        backend webservers 
-            balance leastconn
-            server web1 192.168.50.10:80
-            server web2 192.168.50.11:80
+    backend webservers 
+        balance <code class="bg-red">leastconn</code>
+        server web1 192.168.50.10:80
+        server web2 192.168.50.11:80
                   </pre>
                             <figure>
                                 <img class="aligncenter" width="120%" src="./static/images/least_connections_algorithm.png" alt="haproxy">
@@ -482,20 +499,21 @@
                             <p class="text-intro">
                                 Takes the source and destination IP address of the client and server and combines them to generate a unique hash key. This key is used to allocate the client to a particular server
                             </p>
+                            <hr class="bg-gray">
                             <p>As the key can be regenerated if the session is broken this method of load balancing can ensure that the client request is directed to the same server that it was using previously. This is useful if it’s important that a client
                                 should connect to a session that is still active after a disconnection. For example, to retain items in a shopping cart between sessions.</p>
                         </div>
-                        <div class="column">
+                        <div class="column slideInRight">
                             <pre>
-        frontend mywebsite 
-            bind *:80 
-            default_backend webservers
+    frontend mywebsite 
+        bind *:80 
+        default_backend webservers
 
-        backend webservers 
-            balance source
-            server web1 192.168.50.10:80
-            server web2 192.168.50.11:80
-                </pre>
+    backend webservers 
+        balance <code class="bg-red">source</code>
+        server web1 192.168.50.10:80
+        server web2 192.168.50.11:80
+                            </pre>
                         </div>
                     </div>
                 </div>
@@ -511,23 +529,23 @@
                             </p>
                             <p>Useful for Cache server</p>
                         </div>
-                        <div class="column">
+                        <div class="column zoomIn">
                             <pre>
-          frontend mywebsite 
-              bind *:80 
-              default_backend cache_servers
-  
-          backend cache_servers 
-              balance uri 
-              server cache1 192.168.50.20:80 
-              server cache2 192.168.50.21:80 
+    frontend mywebsite 
+        bind *:80 
+        default_backend cache_servers
+
+    backend cache_servers 
+        balance <code class="bg-red">uri</code>
+        server cache1 192.168.50.20:80 
+        server cache2 192.168.50.21:80 
                   </pre>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="bg-apple aligncenter">
+            <section class="bg-red aligncenter">
                 <div class="wrap size-50">
                     <h1 class="text-landing">#2</h1>
                     <h1>Monitoring</h1>
@@ -538,28 +556,28 @@
                 <div class="wrap">
                     <div class="grid vertical-align">
                         <div class="column">
-                            <h3><strong>
-                  TCP-based heath checks.</strong></h3>
+                            <h3><strong>TCP-based heath checks</strong></h3>
                             <p class="text-intro">
                                 The standard and most basic check of HAProxy. It merely sends out a simple packet and waits for a reply back from the destination server
                             </p>
-                            <p>Enable by adding <code>check</code> paramter to the <code>server</code> directive</p>
-                            <p><code>inter</code>: set interval check time (default is 2 seconds)</p>
-                            <p><code>fall 2</code>: server must fail 2 checks before it is considered down</p>
-                            <p><code>rise 5</code>: server must pass 5 checks before it is considered up</p>
                         </div>
                         <div class="column">
-                            <pre>
-      frontend mywebsite 
-          bind *:80 
-          default_backend web_servers
-
-      backend web_servers 
-          balance roundrobin 
-          server web1 192.168.50.20:80 <code>check inter 10s fall 2 rise 5</code> 
-          server web2 192.168.50.21:80 <code>check inter 10s fall 2 rise 5</code> 
-              </pre>
+                                <p>Enable by adding <code>check</code> paramter to the <code>server</code> directive</p>
+                                <p><code>inter</code>: set interval check time (default is 2 seconds)</p>
+                                <p><code>fall 2</code>: server must fail 2 checks before it is considered down</p>
+                                <p><code>rise 5</code>: server must pass 5 checks before it is considered up</p>
+                           
                         </div>
+                        <pre class="fadeInUp">
+        frontend mywebsite 
+            bind *:80 
+            default_backend web_servers
+        
+        backend web_servers 
+            balance roundrobin 
+            server web1 192.168.50.20:80 <code class="bg-red">check inter 10s fall 2 rise 5</code> 
+            server web2 192.168.50.21:80 <code class="bg-red">check inter 10s fall 2 rise 5</code> 
+                        </pre>
                     </div>
                 </div>
             </section>
@@ -582,20 +600,16 @@
                         </div>
                         <div class="column">
                             <pre>
-      frontend mywebsite 
-          bind *:80 
-          default_backend web_servers
-
-      backend web_servers 
-          mode http 
-          balance roundrobin 
-          option httpchk HEAD /whoami.aspx HTTP/1.0
-          server web1 192.168.50.20:80 check 
-          server web2 192.168.50.21:80 check 
-          http-check expect status 200 
-          # http-check expect rstatus ^2(\d){2}$ 
-          # http-check expect rstring success 
-          http-check disable-on-404
+backend web_servers 
+    mode http 
+    balance roundrobin 
+    <code class="bg-red">option httpchk HEAD /whoami.aspx HTTP/1.0</code>
+    server web1 192.168.50.20:80 check 
+    server web2 192.168.50.21:80 check 
+    <code class="bg-green">http-check expect status 200 </code> 
+    <code class="bg-green"># http-check expect rstatus ^2(\d){2}$ </code> 
+    <code class="bg-green"># http-check expect rstring success</code> 
+    <code class="bg-purple">http-check disable-on-404</code>
                 </pre>
                         </div>
                     </div>
@@ -617,25 +631,25 @@
                         </div>
                         <div class="column">
                             <pre>
-      frontend mywebsite 
-          bind *:80 
-          <code>acl primarydbonline srv_is_up(primary_database/db1)</code> 
-          <code>use_backend primary_service if primarydbonline</code>
-          default_backend backup_service
+frontend mywebsite 
+    bind *:80 
+    <code>acl primarydbonline srv_is_up(primary_database/db1)</code> 
+    <code>use_backend primary_service if primarydbonline</code>
+    default_backend backup_service
 
-      backend primary_service 
-          mode http 
-          balance roundrobin 
-          server web1 192.168.50.20:80 check <code>track primary_database/db1</code>
-          server web2 192.168.50.21:80 check <code>track primary_database/db1</code>
+backend primary_service 
+    mode http 
+    balance roundrobin 
+    server web1 192.168.50.20:80 check <code>track primary_database/db1</code>
+    server web2 192.168.50.21:80 check <code>track primary_database/db1</code>
 
-      backup_service 
-          mode http 
-          server backup1 192.168.50.20:80 check
+backend backup_service 
+    mode http 
+    server backup1 192.168.50.20:80 check
 
-      backend primary_database 
-          mode tcp 
-          server db1 192.168.60.10:1433 check 
+backend primary_database 
+    mode tcp 
+    server db1 192.168.60.10:1433 check 
                 </pre>
                         </div>
                     </div>
@@ -1700,4 +1714,4 @@ frontend fe_smtp
     <script defer src="../static/js/svg-icons.js"></script>
 </body>
 
-</html>
+</html> 
