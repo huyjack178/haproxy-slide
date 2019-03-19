@@ -206,7 +206,7 @@
                             <p class="text-intro">
                                 Less latency and zero-downtime maintenance
                             </p>
-                            <h3><strong>Flexible and Powerfull</strong></h3>
+                            <h3><strong>Flexible and Powerful</strong></h3>
                             <p class="text-intro">
                                 Easy to customize with a different variety of configuration kinds (front-end, back-end, acl rules, health checking ...)
                             </p>
@@ -441,7 +441,6 @@
                                 <hr class="bg-gray">
                                 <p> Each server in a backend can specify a <code>weight</code> , between 0 and 256, that determines the proportion of traffic it should receive. The number of requests that are forwarded to a server will be calculated by dividing its weight by
                                     the sum of all weights</p>
-    
                         </div>
                         <div class="column zoomIn">
                             <pre>
@@ -591,15 +590,13 @@ backend webservers
                             </p>
                             <p>Enable HTTP check when set <code>mode http</code> in <code>backend</code> section. The check will pass if response status is <code>2xx</code> or <code>3xx</code></p>
                             <p><code>option httpchk HEAD /whoami.aspx HTTP/1.0</code>: the check will use a HEAD request against the /whoami.aspx page using HTTP version 1.0</p>
-                            <p><code>http-check expect status 200</code>: check will pass only response status is <code>200</code>
-                            </p>
-                            <p><code>http-check expect rstatus ^2(\d){2}$</code>: check will pass only response status is <code>2xx</code>
-                            </p>
-                            <p><code>http-check disable-on-404</code>: the server will be disabled when check response status <code>404</code>
-                            </p>
+                            <p><code>http-check expect status 200</code>: check will pass only response status is <code>200</code></p>
+                           
                         </div>
                         <div class="column">
-                            <pre>
+                            <p><code>http-check expect rstatus ^2(\d){2}$</code>: check will pass only response status is <code>2xx</code></p>
+                            <p><code>http-check disable-on-404</code>: the server will be disabled when check response status <code>404</code></p>
+                            <pre class="slideInRight">
 backend web_servers 
     mode http 
     balance roundrobin 
@@ -623,34 +620,30 @@ backend web_servers
                             <p class="text-intro">
                                 Used when you want to a server down if a server that it depends on is down
                             </p>
-                            <p><code>track databases/db1</code>: <code>web1</code> is down when <code>primary_database/db1</code> is down
-                            </p>
+                            <p><code>acl primarydbonline srv_is_up(primary_database/db1)</code>: define acl rule for checking <code>primary_database/db1</code> is up</p>
                             <p><code>use_backend primary_service if primarydbonline</code>: frontend <code>mywebsite</code> uses
                                 <code>primary_service</code> when <code>primary_database/db1</code> is up</p>
-                            <p><code>acl primarydbonline srv_is_up(primary_database/db1)</code>: define acl rule for checking <code>primary_database/db1</code> is up</p>
+                            <p><code>track databases/db1</code>: <code>web1</code> is down when <code>primary_database/db1</code> is down
+                            </p>
+                         
                         </div>
                         <div class="column">
-                            <pre>
+                            <pre class="slideInRight">
 frontend mywebsite 
-    bind *:80 
-    <code>acl primarydbonline srv_is_up(primary_database/db1)</code> 
-    <code>use_backend primary_service if primarydbonline</code>
+    <code class="bg-purple">acl primarydbonline srv_is_up(primary_database/db1)</code> 
+    <code class="bg-green">use_backend primary_service if primarydbonline</code>
     default_backend backup_service
 
 backend primary_service 
-    mode http 
-    balance roundrobin 
-    server web1 192.168.50.20:80 check <code>track primary_database/db1</code>
-    server web2 192.168.50.21:80 check <code>track primary_database/db1</code>
+    server web1 192.168.50.20:80 check <code class="bg-red">track primary_database/db1</code>
+    server web2 192.168.50.21:80 check <code class="bg-red">track primary_database/db1</code>
 
 backend backup_service 
-    mode http 
     server backup1 192.168.50.20:80 check
 
 backend primary_database 
-    mode tcp 
     server db1 192.168.60.10:1433 check 
-                </pre>
+                            </pre>
                         </div>
                     </div>
                 </div>
@@ -658,7 +651,7 @@ backend primary_database
             <section class="bg-apple">
                 <div class="wrap">
                     <div class="grid vertical-align">
-                        <div class="column">
+                        <div class="column slideInLeft">
                             <h3><strong>Setting a backup server </strong></h3>
                             <p class="text-intro">
                                 A server is a <code>backup</code> means that it will not be used unless all others servers in the same
@@ -667,15 +660,15 @@ backend primary_database
                             <p></p>
                         </div>
                         <div class="column">
-                            <pre>
-      frontend mywebsite 
-          bind *:80 
-          default_backend webservice
+                            <pre class="slideInRight">
+frontend mywebsite
+    bind *:80 
+    default_backend webservice
 
-      backend webservice 
-          server service1 192.168.50.10:80 check 
-          server service2 192.168.50.11:80 check backup 
-              </pre>
+backend webservice 
+    server s1 10.19.50.10:80 check
+    server s2 10.19.50.11:80 check <code class="bg-red">backup</code> 
+                            </pre>
                         </div>
                     </div>
                 </div>
@@ -686,37 +679,33 @@ backend primary_database
                         <div class="column">
                             <h3><strong>Observing all requests for errors </strong></h3>
                             <p class="text-intro">
-                                Used when not necessary to do health check frequently
-                            </p>
-                            <p><code>layer4</code>: HAProxy will monitor for failed connection from any client</p>
-                            <p><code>layer7</code>: If client receives <code>503 Server Error</code> when accessing any pages, HAProxy will consider it a failed health check</p>
+                                    Used when not necessary to do health check frequently
+                                </p>
                         </div>
                         <div class="column">
-                            <pre>
-frontend mywebsite 
-  bind *:80 
-  default_backend primary_service
-
-backend primary_service 
-  mode http 
-  balance roundrobin 
-  server cache1 192.168.50.20:80 check inter 2m fall 5 observe layer7 error-limit 1
-  server cache2 192.168.50.21:80 check backup 
-
-backend primary_database 
-  mode tcp 
-  server db1 192.168.60.10:1433 check  inter 2m fall 5  observe layer4 error-limit 1
-  server db2 192.168.50.21:3306 check backup 
-                  </pre>
+                                    <p><code>layer4</code>: HAProxy will monitor for failed connection from any client</p>
+                                    <p><code>layer7</code>: If client receives <code>503 Server Error</code> when accessing any pages, HAProxy will consider it a failed health check</p>
                         </div>
+                        <pre class="fadeInUp">
+    backend primary_service 
+        mode http 
+        server cache1 192.168.50.20:80 check inter 2m fall 5 <code class="bg-red">observe layer7 error-limit 1</code>
+        server cache2 192.168.50.21:80 check backup 
+
+    backend primary_database 
+        mode tcp 
+        server db1 192.168.60.10:1433 check  inter 2m fall 5 <code class="bg-red">observe layer4 error-limit 1</code>
+        server db2 192.168.50.21:3306 check backup 
+                        </pre>
                     </div>
                 </div>
             </section>
-            <section class="bg-apple aligncenter">
+            <section class="bg-blue aligncenter">
                 <div class="wrap size-50">
                     <h1 class="text-landing">#3</h1>
                     <h1>Logging and Statistics</h1>
-                    <p class="text-intro">Be able to get timely information about what's happening in HAProxy & comes with a built-in webpage that displays information about your proxies and backend servers
+                    <p class="text-intro">Be able to get timely information about what's happening in HAProxy & 
+                        comes with a built-in webpage that displays information about your proxies and backend servers
                     </p>
                 </div>
             </section>
@@ -733,79 +722,68 @@ backend primary_database
                             </p>
                             <p><code>info</code>: the log level in <code>emerg, alert, crit, err, warning, notice, info</code></p>
                         </div>
-                        <div class="column">
+                        <div class="column slideInRight">
                             <pre>
     global 
-      log /dev/log local0 info 
+      log <code class="bg-red">/dev/log</code> local0 <code class="bg-green">info</code>
 
     defaults
       log global
       option httplog
-          </pre>
+                            </pre>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="bg-apple">
                 <div class="wrap">
-                    <div class="grid vertical-align">
-                        <div class="column">
+                        <div>
                             <h3><strong>Splitting up log messages by tag </strong></h3>
                             <p class="text-intro">
-                                Enable tag to classify log. When rsyslog receives events from HAProxy, it checks its configuration to know which log file to write them to
+                                    Enable tag to classify log. When rsyslog receives events from HAProxy, it checks its configuration to know which log file to write them to
                             </p>
                         </div>
-                        <div class="column">
-                            <p>/etc/haproxy/haproxy.cfg</p>
+                        <hr class="bg-gray">
+                        <div class="fadeInUp">
                             <pre>
-      frontent 
-        alpha bind 192.168.50.31:80 
+    <code class="bg-purple"># haproxy config</code>
+    frontent 
         default_backend alpha_servers 
-        log-tag alpha
+        <code class="bg-red">log-tag alpha</code>
 
-      frontend 
-        nap bind 192.168.50.33:80 
+    frontend 
         default_backend nap 
-        log-tag nap 
-            </pre>
-                            <hr />
-                            <p>/etc/rsyslog.d/haproxy.conf</p>
-                            <pre>
-      # Send messages to files based on their tag 
-      if $programname startswith 'haproxy' then /var/log/haproxy.log 
-      if $programname == 'alpha' then /var/log/haproxy_alpha.log 
-      if $programname == 'nap' then /var/log/haproxy_nap.log
-            </pre>
+        <code class="bg-red">log-tag nap</code>
+
+    <code class="bg-purple"># rsyslog config </code>
+    if $programname startswith 'haproxy' then /var/log/haproxy.log 
+    if $programname == 'alpha' then /var/log/haproxy_alpha.log 
+    if $programname == 'nap' then /var/log/haproxy_nap.log
+                            </pre>
                         </div>
-                    </div>
                 </div>
             </section>
             <section class="bg-apple">
-                <div class="wrap">
-                    <div class="grid vertical-align">
-                        <div class="column">
-                            <h3><strong>Separating errors into their own log file</strong></h3>
-                            <p class="text-intro">
-                                Enable by adding <code>option log-separate-errors</code>
-                            </p>
-                            <p>Log Level: Emergency (0), Alert (1), Critical (2), Error (3), Warning (4), Notice (5), Informational (6), Debug (7)</p>
-                        </div>
-                        <div class="column">
-                            <p>/etc/haproxy/haproxy.cfg</p>
-                            <pre>
-        defaults
-          log global 
-          option log-separate-errors 
-              </pre>
-                            <hr />
-                            <p>/etc/rsyslog.d/haproxy.conf</p>
-                            <pre>
-        # Send messages to files based on their tag 
-        if $programname startswith 'haproxy' then /var/log/haproxy.log 
-        if $programname startswith 'haproxy' and $syslogseverity <= 3 
-          then /var/log/haproxy_errors.log 
-              </pre>
-                        </div>
+                <div class="wrap ">
+                    <div class="slideInLeft">
+                        <h3><strong>Separating errors into their own log file</strong></h3>
+                        <p class="text-intro">
+                            Enable by adding <code>option log-separate-errors</code>
+                        </p>
+                        <p>Log Level: Emergency (0), Alert (1), Critical (2), Error (3), Warning (4), Notice (5), Informational (6), Debug (7)</p>
+                    </div>
+                    <hr class="bg-gray">
+                    <div class="slideInRight">
+                      <pre>
+    <code class="bg-purple">#haproxy config</code>
+    defaults
+        log global 
+        <code class="bg-red">option log-separate-errors </code>
+
+    <code class="bg-purple"># rsyslog config</code>
+    if $programname startswith 'haproxy' then /var/log/haproxy.log 
+    if $programname startswith 'haproxy' and $syslogseverity <= 3 then /var/log/haproxy_errors.log 
+                        </pre>
                     </div>
                 </div>
             </section>
@@ -820,18 +798,18 @@ backend primary_database
                             </p>
                             <p></p>
                         </div>
-                        <div class="column">
+                        <div class="column slideInRight">
                             <pre>
-        listen stats
-          bind *:8080
-          mode  http
-          maxconn  10
-          stats refresh 30s
-          stats admin if TRUE
-          stats  enable
-          stats  uri /
-          stats show-legends
-          stats  auth admin:1234aaAA
+    listen stats
+        bind *:8080
+        mode http
+        maxconn 10
+        stats refresh 30s
+        stats admin if TRUE
+        stats enable
+        stats uri /
+        stats show-legends
+        stats auth admin:1234aaAA
                 </pre>
                         </div>
                     </div>
@@ -842,12 +820,10 @@ backend primary_database
                     <iframe src="http://10.19.10.155:8080/" frameborder="0" width="100%" height="700px" allowfullscreen></iframe>
                 </div>
             </section>
-
-
             <section class="bg-apple">
                 <div class="wrap">
                     <h2>Advanced Features</h2>
-                    <ul class="flexblock features">
+                    <ul class="flexblock features zoomIn">
                         <li>
                             <div>
                                 <h2>
@@ -863,7 +839,7 @@ backend primary_database
                                 <h2>
                                     <svg class="fa-share-alt">
                     <use xlink:href="#fa-share-alt"></use>
-                  </svg> ACLs
+                                    </svg> ACLs
                                 </h2>
                                 Custom rules to do multiple actions
                             </div>
@@ -881,8 +857,6 @@ backend primary_database
                     </ul>
                 </div>
             </section>
-
-
             <section class="bg-apple aligncenter">
                 <span class="background dark" style="background-image:url('https://cdn.haproxy.com/wp-content/uploads/2018/09/haproxy-acl.png')"></span>
                 <div class="wrap size-50">
@@ -895,8 +869,7 @@ backend primary_database
             </section>
             <section class="bg-apple">
                 <div class="wrap">
-                    <div class="grid vertical-align">
-                        <div class="column">
+                        <div class="column slideInLeft">
                             <h3><strong>ACLs Introduction</strong></h3>
                             <p class="text-intro">
                                 Provides a flexible solution to perform content switching and generally to take decisions based on content extracted from the request, the response or any environmental status like <strong>blocking
@@ -904,17 +877,17 @@ backend primary_database
                   choosing backend, redirect to HTTPS...</strong>
                             </p>
                         </div>
-                        <div class="column">
+                        <hr class="bg-gray">
+                        <div class="column slideInRight">
                             <pre>
-        # In order to define an "acl", the syntax is
-        acl <code>acl_name</code> <code>criterion</code>
-  
-        # Example
-        acl is_localhost src 127.0.0.1
-        http-request deny if HTTP_1.0
+    # In order to define an "acl", the syntax is
+    acl <code class="bg-green">acl_name</code> <code class="bg-purple">criterion</code>
+
+    # Example
+    <code class="bg-red">acl is_localhost src 127.0.0.1</code>
+    http-request deny if HTTP_1.0
                </pre>
                         </div>
-                    </div>
                 </div>
             </section>
             <section class="bg-apple">
@@ -928,16 +901,18 @@ backend primary_database
                             <p>
                                 <code>if HTTP_1.0</code> A number of attacks use HTTP/1.0 as the protocol version because that’s the version supported by some bots
                             </p>
-                            <p><code>if { req.hdr(user-agent) -i -m sub curl phantomjs slimerjs }</code> User-Agent request header contains the string <code>curl, phantomjs, slimerjs</code> headless browsers that could be used to automate an attack
-                            </p>
                             <p><code>unless { req.hdr(user-agent) -m found }</code> User-Agent not found</p>
                         </div>
                         <div class="column">
-                            <pre>
+                            <p><code>if { req.hdr(user-agent) -i -m sub curl phantomjs slimerjs }</code> User-Agent request header contains the string <code>curl, phantomjs, slimerjs</code> headless browsers that could be used to automate an attack
+                            </p>
+                            <pre class="slideInRight">
     frontend mysite
-      http-request deny if HTTP_1.0
-      http-request deny if { req.hdr(user-agent) -i -m sub curl phantomjs slimerjs }
-      http-request deny unless { req.hdr(user-agent) -m found }
+      http-request deny <code class="bg-purple">if HTTP_1.0</code> 
+      
+      http-request deny <code class="bg-green">if { req.hdr(user-agent) -i -m sub curl phantomjs slimerjs }</code> 
+
+      http-request deny <code class="bg-blue">unless { req.hdr(user-agent) -m found }</code>
                    </pre>
                         </div>
                     </div>
@@ -945,28 +920,27 @@ backend primary_database
             </section>
             <section class="bg-apple">
                 <div class="wrap">
-                    <div class="grid vertical-align">
-                        <div class="column">
-                            <h3><strong>Choosing backend</strong></h3>
-                            <p class="text-intro">
-                                Inspects each HTTP request and check whether they match rules or not, then the request can be forwarded to a specific <code>backend</code>
-                            </p>
-                        </div>
-                        <div class="column">
-                            <pre>
-    frontend mysite
-      acl is_api path_begin -i /api
-      use_backend apiservers if is_api
-  
-      acl ismobile req.hdr(User-Agent) -i -m reg (android|iphone) 
-      use_backend mobileservers if ismobile 
-  
-      redirect scheme https if !{ ssl_fc }
-      
-      default_backend webservers
-                     </pre>
-                        </div>
+                    <div class="column">
+                        <h3><strong>Choosing backend</strong></h3>
+                        <p class="text-intro">
+                            Inspects each HTTP request and check whether they match rules or not, then the request can be forwarded to a specific <code>backend</code>
+                        </p>
                     </div>
+                    <hr class="bg-gray">
+                    <div class="column fadeInUp">
+                        <pre>
+    frontend mysite
+        <code class="bg-red">acl is_api path_begin -i /api</code>
+        <code class="bg-red">acl ismobile req.hdr(User-Agent) -i -m reg (android|iphone)</code>
+
+        <code class="bg-green">use_backend apiservers if is_api</code> 
+        <code class="bg-green">use_backend mobileservers if ismobile</code> 
+
+        redirect scheme https if !{ ssl_fc }
+        
+        default_backend webservers
+                    </pre>
+                </div>
                 </div>
             </section>
 
